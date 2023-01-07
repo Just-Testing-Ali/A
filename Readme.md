@@ -1,1 +1,1 @@
-$$\<style>*{font-size:23px;}</style>{}$$
+$$<div>Test</div>{}$$

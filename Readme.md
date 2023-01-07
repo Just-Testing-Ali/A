@@ -1,1 +1,1 @@
-$$\<style>div{background-color:blue}</style>{}$$
+$$\<style>*{font-size:23px;}</style>{}$$

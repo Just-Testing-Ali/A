@@ -1,1 +1,1 @@
-$$<input type=text>{ASD}$$
+$$<input type=text>{}$$

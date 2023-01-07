@@ -1,1 +1,1 @@
-$$<span>Test</span>{}$$
+$$<input type=text>{}$$

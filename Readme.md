@@ -1,1 +1,1 @@
-$$<div>Test</div>{}$$
+$$<span>Test<span>{}$$

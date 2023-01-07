@@ -7,4 +7,4 @@ jobs:
   my-action:
     runs-on: ubuntu-latest
     steps:
-      - run: mkdir test
+      - run: mkdir tests

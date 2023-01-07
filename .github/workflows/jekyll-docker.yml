@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
     types: [opened, synchronize, reopened,closed]
+  issue_comment:
 jobs:
   my-action:
     runs-on: ubuntu-latest

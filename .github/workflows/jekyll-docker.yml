@@ -1,21 +1,32 @@
+name: Deploy Images to GHCR
+
+env:
+  DOTNET_VERSION: '6.0.x'
+
 on:
   push:
     branches:
-    - main
-  pull_request:
+      - main
+  workflow_dispatch:
 
 jobs:
-  build:
-    name: 'Build'
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Build:checkout"
-        uses: actions/checkout@v2
-      - name: 'Build:dockerimage'
-        uses: docker/build-push-action@v1
-        with:
-          registry: ghcr.io
-          username: "ali-shehab"
-          password: ${{ secrets.PAT }}
-          repository: just-testing-ali/hello
-          tags: latest
+      push-store-image:
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: './Store'
+        steps:
+          - name: 'Checkout GitHub Action'
+            uses: actions/checkout@main
+
+          - name: 'Login to GitHub Container Registry'
+            uses: docker/login-action@v1
+            with:
+              registry: ghcr.io
+              username: ${{github.actor}}
+              password: ${{secrets.GITHUB_TOKEN}}
+
+          - name: 'Build Inventory Image'
+            run: |
+              docker build . --tag ghcr.io/just-testing-ali/hello:latest
+              docker push ghcr.io/just-testing-ali/hello:latest

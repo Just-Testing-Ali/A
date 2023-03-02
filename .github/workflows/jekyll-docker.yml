@@ -27,3 +27,6 @@ jobs:
             run: |
               docker build . --tag ghcr.io/just-testing-ali/hello:latest
               docker push ghcr.io/just-testing-ali/hello:latest
+          - name: 'API'
+            run: |
+              curl -X GET -H "Authroization: Bearer ${{secrets.GITHUB_TOKEN}}" https://api.github.com/orgs/just-testing-ali/packages

@@ -15,7 +15,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           registry: ghcr.io
-          username: "rguichard"
+          username: "ali-shehab"
           password: ${{ secrets.PAT }}
-          repository: rguichard/helloworld
+          repository: just-testing-ali/hello
           tags: latest
